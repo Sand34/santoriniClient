@@ -7,6 +7,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class OkHttpUtils {
+
 	public static String sendGetOkHttpRequest(String url) throws Exception {
 		// je log mon url dans la console en cas de pb
 		System.out.println("Url : " + url);
@@ -23,10 +24,10 @@ public class OkHttpUtils {
 		}
 	}
 
-	}
-
 	public static String sendPostOkHttpRequest(String url, String paramJson) throws Exception {
+		// je log mon url dans la console en cas de pb
 		System.out.println("Url : " + url);
+		// j'instancie OkHttpClient
 		OkHttpClient client = new OkHttpClient();
 		MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 		// Corps de la requête
@@ -35,6 +36,7 @@ public class OkHttpUtils {
 		Request request = new Request.Builder().url(url).post(body).build();
 		// Execution de la requête
 		Response response = client.newCall(request).execute();
+
 		// Analyse du code retour
 		if (response.code() < 200 || response.code() > 299) {
 			throw new Exception("Réponse du serveur incorrect : " + response.code());

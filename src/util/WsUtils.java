@@ -1,6 +1,7 @@
 package util;
 
-import java.util.ArrayList;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import beans.Plateau;
 
@@ -12,14 +13,14 @@ public class WsUtils {
 
 	public static Plateau getPlateauFromServeur() throws Exception {
 		// requete
-		String jsonRecu = OkHttpUtils.sendGetOkHttpRequest(URL_METHOD_JSON);
+		String jsonRecu = OkHttpUtils.sendGetOkHttpRequest(URL_SERVER_METHOD1);
 		// parser le résultat
 		// à partir du Json création des objets
 		Gson gson = new Gson();
 		// parse en arralist
-		ArrayList<MessageBean> liste = gson.fromJson(jsonRecu, new TypeToken<ArrayList<MessageBean>>() {
+		Plateau plateau = gson.fromJson(jsonRecu, new TypeToken<Plateau>() {
 		}.getType());
-		return liste;
+		return plateau;
 
 	}
 
