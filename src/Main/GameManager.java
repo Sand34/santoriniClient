@@ -1,72 +1,53 @@
 package Main;
 
+import beans.Joueur;
+import beans.Pion;
+import beans.Plateau;
 import util.GameAction;
 
 public class GameManager {
 
 	public static void main(String[] args) {
 
-		// Plateau plateau = new Plateau();
+		Plateau plateau = new Plateau();
+		Joueur joueur1 = new Joueur();
+		Pion pion1 = new Pion();
+		Pion pion2 = new Pion();
 
-		GameAction.initJoueur1("s1", "s2", 5, 6, 5, 5);
-		GameAction.initJoueur2("p1", "p2", 5, 0, 2, 2);
-		GameAction.refreshGrille();
+		plateau.getPartie().setJoueur1(joueur1);
+		plateau.getPartie().getJoueur1().setPion1(pion1);
+		plateau.getPartie().getJoueur1().setPion2(pion2);
+
+		plateau.getPartie().getJoueur1().getPion1().setPseudoPion("s1");
+		plateau.getPartie().getJoueur1().getPion2().setPseudoPion("s2");
+		plateau.getGrille()[0][0] = plateau.getPartie().getJoueur1().getPion1().getPseudoPion();
+
+		plateau.getGrille()[0][1] = plateau.getPartie().getJoueur1().getPion2().getPseudoPion();
+		plateau.getPartie().getJoueur1().getPion1().construire("x");
+		plateau.getPartie().getJoueur1().getPion2().construire("x");
+
+		Joueur joueur2 = new Joueur();
+		Pion pion3 = new Pion();
+		Pion pion4 = new Pion();
+
+		plateau.getPartie().setJoueur2(joueur2);
+		plateau.getPartie().getJoueur2().setPion1(pion3);
+		plateau.getPartie().getJoueur2().setPion2(pion4);
+		plateau.getPartie().getJoueur2().getPion1().setPseudoPion("p1");
+		plateau.getPartie().getJoueur2().getPion2().setPseudoPion("p2");
+		plateau.getGrille()[5][5] = plateau.getPartie().getJoueur2().getPion1().getPseudoPion();
+
+		plateau.getGrille()[3][2] = plateau.getPartie().getJoueur2().getPion2().getPseudoPion();
+		plateau.getPartie().getJoueur2().getPion1().construire("x");
+		plateau.getPartie().getJoueur2().getPion2().construire("x");
+
+		GameAction.refreshGrille(plateau);
 		System.out.println();
 
-		// GameAction.deplacer("s1", "haut");
-		// GameAction.refreshGrille();
-		// System.out.println();
+		GameAction.deplacer(pion2, "haut", plateau);
+		GameAction.deplacer(pion3, "haut", plateau);
+		// GameAction.construire(pion3, "droite", plateau);
 
-		GameAction.deplacer("p2", "droite");
-		GameAction.refreshGrille();
-		System.out.println();
-
-		// Joueur joueur1 = new Joueur();
-		//
-		// plateau.getPartie().setJoueur1(joueur1);
-		// plateau.getPartie().getJoueur1().getPion1().setPseudoPion("s1");
-		// plateau.getPartie().getJoueur1().getPion2().setPseudoPion("s2");
-		// plateau.getGrille()[5][6] =
-		// plateau.getPartie().getJoueur1().getPion1().getPseudoPion();
-		//
-		// plateau.getGrille()[6][3] =
-		// plateau.getPartie().getJoueur1().getPion2().getPseudoPion();
-
-		// Joueur joueur2 = new Joueur();
-		// plateau.getPartie().setJoueur2(joueur2);
-		// plateau.getPartie().getJoueur2().getPion1().setPseudoPion("c1");
-		// plateau.getPartie().getJoueur2().getPion2().setPseudoPion("c2");
-		// plateau.getGrille()[0][1] =
-		// plateau.getPartie().getJoueur2().getPion1().getPseudoPion();
-		// plateau.getGrille()[0][3] =
-		// plateau.getPartie().getJoueur2().getPion2().getPseudoPion();
-
-		// plateau.getPartie().getJoueur1().getPion1().construire("b1");
-		// plateau.getPartie().getJoueur1().getPion2().construire("b1");
-		// plateau.getGrille()[5][5] =
-		// plateau.getPartie().getJoueur1().getPion1().afficherConstruction();
-		//
-		// plateau.getGrille()[0][0] =
-		// plateau.getPartie().getJoueur1().getPion2().afficherConstruction();
-		//
-
-		// boucle pour parcourir le tableau par les i cad un tableau
-		// for (int i = 0; i < plateau.getGrille().length; i++) {
-		// // affiche l'index en d�but de ligne
-		// System.out.print("index:" + i + " - ");
-		// // boucle pour parcourir le tableau i par case
-		//
-		// for (int j = 0; j < plateau.getGrille()[i].length; j++) {
-		//
-		// if (plateau.getGrille()[i][j] == null) {
-		// plateau.getGrille()[i][j] = "..";
-		// }
-		// System.out.print(plateau.getGrille()[i][j] + " ");
-		//
-		// }
-		// System.out.println();
-		//
-		// }
-
+		GameAction.refreshGrille(plateau);
 	}
 }
