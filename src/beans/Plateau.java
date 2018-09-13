@@ -9,6 +9,7 @@ public class Plateau {
 	public Plateau() {
 		grille = new String[7][7];
 		partie = new Partie();
+
 	}
 
 	// GETTER & SETTER

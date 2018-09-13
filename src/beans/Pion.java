@@ -37,7 +37,4 @@ public class Pion {
 		return caze.afficherConstruction();
 	}
 
-	public String afficherLevel() {
-		return caze.afficherLevel();
-	}
 }

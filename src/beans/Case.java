@@ -26,10 +26,6 @@ public class Case {
 		position = string;
 	}
 
-	// public Plateau getPlateau() {
-	// return plateau;
-	// }
-
 	public boolean isOccupe() {
 		return occupe;
 	}
@@ -38,27 +34,11 @@ public class Case {
 		this.occupe = occupe;
 	}
 
-	// public void construire(String construction) {
-	// building.setConstruction(construction);
-	// }
-	//
-	// public String afficherConstruction() {
-	// return building.getConstruction();
-	// }
 	public void construire(String construction) {
 		building.setConstruction(construction);
 	}
 
-	// public String afficherConstruction() {
-	// return building.getConstruction();
-	// }
-
-	public String afficherLevel() {
-		return building.getLevel();
-	}
-
 	public String afficherConstruction() {
-		// TODO Auto-generated method stub
 		return building.getConstruction();
 	}
 
