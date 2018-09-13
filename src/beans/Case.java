@@ -45,8 +45,8 @@ public class Case {
 	// public String afficherConstruction() {
 	// return building.getConstruction();
 	// }
-	public void construire(String level) {
-		building.setLevel(level);
+	public void construire(String construction) {
+		building.setConstruction(construction);
 	}
 
 	// public String afficherConstruction() {
@@ -55,6 +55,11 @@ public class Case {
 
 	public String afficherLevel() {
 		return building.getLevel();
+	}
+
+	public String afficherConstruction() {
+		// TODO Auto-generated method stub
+		return building.getConstruction();
 	}
 
 }

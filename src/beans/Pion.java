@@ -29,16 +29,12 @@ public class Pion {
 		this.pseudoPion = pseudoPion;
 	}
 
-	// public void construire(String construction) {
-	// caze.construire(construction);
-	// }
-	//
-	// public String afficherConstruction() {
-	// return caze.afficherConstruction();
-	// }
+	public void construire(String construction) {
+		caze.construire(construction);
+	}
 
-	public void construire(String level) {
-		caze.construire(level);
+	public String afficherConstruction() {
+		return caze.afficherConstruction();
 	}
 
 	public String afficherLevel() {

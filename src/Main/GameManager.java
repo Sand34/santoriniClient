@@ -23,8 +23,8 @@ public class GameManager {
 		plateau.getGrille()[0][0] = plateau.getPartie().getJoueur1().getPion1().getPseudoPion();
 
 		plateau.getGrille()[0][1] = plateau.getPartie().getJoueur1().getPion2().getPseudoPion();
-		plateau.getPartie().getJoueur1().getPion1().construire("x");
-		plateau.getPartie().getJoueur1().getPion2().construire("x");
+		plateau.getPartie().getJoueur1().getPion1().construire("xx");
+		plateau.getPartie().getJoueur1().getPion2().construire("xx");
 
 		Joueur joueur2 = new Joueur();
 		Pion pion3 = new Pion();
@@ -38,15 +38,15 @@ public class GameManager {
 		plateau.getGrille()[5][5] = plateau.getPartie().getJoueur2().getPion1().getPseudoPion();
 
 		plateau.getGrille()[3][2] = plateau.getPartie().getJoueur2().getPion2().getPseudoPion();
-		plateau.getPartie().getJoueur2().getPion1().construire("x");
-		plateau.getPartie().getJoueur2().getPion2().construire("x");
+		plateau.getPartie().getJoueur2().getPion1().construire("xx");
+		plateau.getPartie().getJoueur2().getPion2().construire("xx");
 
-		GameAction.refreshGrille(plateau);
 		System.out.println();
 
 		GameAction.deplacer(pion2, "haut", plateau);
 		GameAction.deplacer(pion3, "haut", plateau);
-		// GameAction.construire(pion3, "droite", plateau);
+		GameAction.construire(pion4, "bas", plateau);
+		GameAction.construire(pion3, "droite", plateau);
 
 		GameAction.refreshGrille(plateau);
 	}
